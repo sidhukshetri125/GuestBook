@@ -1,0 +1,47 @@
+<html>
+<head>
+    <link href="../css/style.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<div class="container">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+	<h1 class="pageTitle">Welcome Admin</h1>
+	<div class="navLinkDiv">
+		<a class="underlineHover" href="/login-user.html" style="float: left;">Back</a>
+		<a class="underlineHover" href="/login-user.html" style="float: right;">Sign Out</a>
+	  </div>
+	  <div style="clear: both;"></div>
+	<div class="inner-container">
+		<div class="row">
+			<div class="col-md-12">
+	<img src="/images/SwimmingPool.jpg"	alt="user image">
+			<div>
+				<h3>
+					<!-- <span>User name</span> -->
+					<p>
+						Welcome <span sec:authentication="principal.username">User</span>
+					</p>
+				</h3>
+	</div>
+    <!-- Remind Passowrd -->
+    <div  class="text-center" id="formFooter">
+	  <a class="underlineHover" style="float: none;" th:href="@{/indexadmin}">View Users</a>
+	  <!-- <a class="underlineHover" style="float: none;" th:href="@{/viewfeedbackuser}">View feedback</a> -->	   
+	   <a class="underlineHover" style="float: none;" th:href="@{/viewFeedbackUser}">View feedback</a>  
+    </div>
+	<div class="text-center">
+						
+		</div>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+</html>

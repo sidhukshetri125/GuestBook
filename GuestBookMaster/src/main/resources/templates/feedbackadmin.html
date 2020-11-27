@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+         xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">	
+         <lnk href="css/bootstrap.css" rel="stylesheet">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Manager</title>
+</head>
+<body>
+
+<div align = Center>
+   <div sec:authorize="isAuthenticated()">
+    Welcome <b><span sec:authentication="name">Username</span></b>
+    &nbsp;
+    <i><span sec:authentication="principal.authorities">Roles</span></i>
+   
+    <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout" />
+</form>
+</div>
+ <h1>Feedback Entries</h1>
+ <a href="new"> Create New User</a>
+<br/><br/>
+ <table border="1">
+ 	<thead>
+ 		<tr>             
+           <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Feedback</th>
+          <th scope="col">File</th>
+          <th scope="col">Date</th>
+          <th scope="col">Status</th>
+              <th sec:authorize="hasAnyAuthority('ADMIN')">Action</th>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 	
+ 	<tr th:each="temp : ${feedbackList}"> 	
+ 	  <tr th:each ="temp : ${feedbackList}">
+        <td th:text="${temp.id}">User id</td> 
+         <td th:text="${temp.firstname}">First Name</td>         
+          <td th:text="${temp.feedbacktext}">Feedback Text</td> 
+           <td th:text="${temp.feedbackimagename}">imagename</td> 
+            <td th:text="${temp.timestamp}">timestamp</td> 	    
+            
+            
+            
+              
+ 	            <td sec:authorize="hasAnyAuthority('ADMIN')">
+                    <a th:href="@{'/edit/' + ${user.id}}">Edit</a>
+                     &nbsp;&nbsp;&nbsp;
+                   <a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/delete/' + ${user.id}}">Delete</a>
+                    <a th:href="@{'/delete/' + ${user.id}}">Delete</a>
+                                        
+                </td>
+ 	  </tr>
+ 	</tbody> 
+ </table>
+</div>
+
+<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+
+</body>
+</html>

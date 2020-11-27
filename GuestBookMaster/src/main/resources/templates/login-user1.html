@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home page of registration and login</title>
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div id="formContent">
+		  <!-- Tabs Titles -->
+		  <h1 class="pageTitle">Guest Book Login</h1>
+	<div class="inner-container">
+
+		<div class="row">
+			<div class="col-md-12">
+			 
+				 <form th:action="@{/login}"  method="post" action="/welcome-guest"> 
+					<div th:if="${param.error}">
+						<div class="alert alert-danger">Invalid username or
+							password.</div>
+					</div>
+					<div th:if="${param.logout}">
+						<div class="alert alert-info">You have been logged out.</div>
+					</div>
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="text"
+							id="username" name="username" class="form-control"
+							autofocus="autofocus" placeholder="Enter Email Id" />
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password"
+							id="password" name="password" class="form-control"
+							placeholder="Password" />
+					</div>
+
+					<div class="text-center">
+						<input type="submit"name="login-submit"  id="login-submit" value="Log in" class="btn btn-primary">						
+						</div>
+					<div class="form-group">
+						<span>New user? <a href="/" th:href="@{/registration}">Register
+								here</a></span>
+					</div>
+				</form>
+			 
+			</div>
+		</div>
+
+
+	</div>
+</div>
+</div>
+</div>
+	<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+</body>
+</html>

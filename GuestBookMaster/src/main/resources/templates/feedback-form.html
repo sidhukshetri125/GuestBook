@@ -1,0 +1,73 @@
+<html>
+<head>
+    <link href="../css/style.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<div class="container">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h1 class="pageTitle">Feedback Form</h1>
+    <div class="navLinkDiv">
+			<a class="underlineHover" href="/welcomeguest" style="float: left;">Back</a>
+			<a class="underlineHover" href="/login" style="float: right;">Sign Out</a>
+		  </div>
+		  <div style="clear: both;"></div>
+    <div class="inner-container">
+      <div class="row">
+        <div class="col-md-12">
+      <form action="#" th:action="@{/submitFeedback}" method="POST" enctype="multipart/form-data">
+        <div class="form-group">						
+          <label for="content" class="control-label">Please Enter Your Feedback</label> 
+          <div>
+          <textarea  id="feedbackText" name="feedbackText" rows="5" class="form-control" placeholder="Please Enter Your Feedback" required ></textarea>
+          
+          </div>
+          <br>
+         
+          <br>
+      <div id="both" class="form-group">
+        <div class="file-path-wrapper">
+          
+          <input id="feedbackImage" name="feedbackImage" type="file" class="file-path validate" accept=".jpg,.png"
+             required placeholder="Plese Upload File">
+          <div class="text-danger">
+            <h6>(Only .jpg and .png files supported)</h6>
+          </div>
+        </div>
+        <input type="submit" class="fourth" value="Submit">
+      </div>
+     </form>
+  </div>
+</div>
+</div>
+</div>
+  </div>
+<script >
+  /*$(document).ready(function() {
+    $('#choice').on('change', function() {
+      if (this.value == '1') {
+        $("#feedbacktext").show();
+      } else {
+        $("#feedbacktext").hide();
+        $("#both").hide();
+      }
+      if (this.value == '2') {
+        $("#feedbackfile").show();
+
+      } else {
+        $("#feedbackfile").hide();
+        $("#both").hide();
+      }if (this.value == '3') {
+        $("#both").show();
+        $("#feedbacktext").hide();
+        $("#feedbackfile").hide();
+      }
+    });
+  });*/
+</script>
+
+</html>

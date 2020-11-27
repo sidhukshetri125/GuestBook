@@ -1,0 +1,82 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Contact Us</title>
+
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--  Navigation bar (header)-->
+
+
+
+	<div class="container">
+		<div id="formContent">
+		  <!-- Tabs Titles -->
+		  <h1 class="pageTitle">Contact Us</h1>
+		  <div class="navLinkDiv">
+			<a class="underlineHover" href="/welcomeguest" style="float: left;">Back</a>
+			<a class="underlineHover" href="/login" style="float: right;">Sign Out</a>
+		  </div>
+		  <div style="clear: both;"></div>
+	<div class="inner-container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully send feedback
+						to our Admin !</div>
+				</div>
+				
+				<form th:action="@{/contact}" th:object="${user}" method="post" enctype="multipart/form-data">
+				<div class="form-group">						
+						<label for="fullname" class="control-label">Full name</label> 
+						<input id="fullname" name="fullname" class="form-control"  required autofocus="autofocus" />
+						
+					</div>
+					<div class="form-group">						
+						<label for="email" class="control-label">Email</label> 
+						<input id="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required autofocus="autofocus" />
+						
+					</div>					
+					 
+					<div class="form-group">						
+						<label for="subject" class="control-label">Subject</label> 
+						<input id="subject" name="subject"class="form-control"   required autofocus="autofocus" />
+						
+					</div>
+					
+					
+						<div class="form-group">						
+						<label for="content" class="control-label">Content</label> 
+						<div>
+						<textarea  name="content" rows="5" class="form-control" required ></textarea>
+						
+						</div>
+						<br>
+						<div class="form-group">						
+						<label for="attachment" class="control-label">Attachment</label> 
+						<div class="col-sm-8">
+						<input type="file" name="attachment">						
+						</div>
+						
+						
+					</div>			
+					     				 
+					<div class="text-center">
+					<input type="submit" value="send" class="btn btn-primary"/>						
+					</div>
+				</form>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

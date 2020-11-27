@@ -1,0 +1,64 @@
+<html>
+<head>
+    <link href="../css/style.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<div class="container">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h1 class="pageTitle">Guest book Registration</h1>
+
+   <!--   code  -->
+   <div class="inner-container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<div th:if="${param.success}">
+					<div class="alert alert-info"> Thank You !! You've successfully registered
+						to our Guest Book Application !</div>
+				</div>
+				
+				<!-- <h1>Entry Registration</h1> -->
+				<form th:action="@{/registration}" th:object="${user}" method="post" enctype="multipart/form-data">
+				<div class="form-group">						
+						<label for="firstName" class="control-label">First name</label> 
+						<input id="firstname" class="form-control" th:field="*{firstname}" required autofocus="autofocus" />
+				</div>
+					<div class="form-group">						
+						<label for="lastName" class="control-label">Last name</label> 
+						<input id="lastname" class="form-control" th:field="*{lastname}" required autofocus="autofocus" />
+					</div>
+					 <div class="form-group">						
+						<label for="email" class="control-label">Email</label> 
+						<input id="email" class="form-control" th:field="*{email}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required autofocus="autofocus" />
+					</div>
+						<div class="form-group">						
+						<label for="password" class="control-label">Password</label> 
+						<input id="password" type="password" class="form-control" th:field="*{password}" required autofocus="autofocus" />
+					   </div>						     				 
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Register</button>
+						<span>Already registered? <a href="/" th:href="@{/login}">Login
+								here</a></span>
+					</div>
+				</form>
+		</div>
+	</div>
+</div>
+</div>
+<script type="text/javascript"
+		th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+	<script type="text/javascript"
+		th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+   
+   <!--   code  -->
+    
+    
+</div>
+
+</body>
+</html>

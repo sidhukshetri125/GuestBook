@@ -1,0 +1,85 @@
+<html>
+<head>
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+</head>
+ <body>
+
+	<div class="container">
+		<div class="pageTitle">
+		  <div>
+			User Details
+		  </div>
+		</div>
+		<div class="navLinkDiv">
+		  <a class="underlineHover" href="/welcomeguest" style="float: left;">Back</a>
+		  <a class="underlineHover" href="/login" style="float: right;">Sign Out</a>
+		</div>
+		<div style="clear: both;height: 20px;"></div>
+	
+		<br>
+		 
+		<div th:if="${message}">
+                <div class="alert alert-success" align="center" >
+                  <h2><b>  [[${message}]]</b></h2>
+                </div>
+         </div>
+         <div th:if="${error}">
+                <div class="alert alert-danger" align="center" >
+                  <h2><b>  [[${error}]]</b></h2>
+                </div>
+         </div>
+		<br>
+		<br>
+		<div sec:authorize="isAuthenticated()">
+    Welcome <b><span sec:authentication="name">Username</span></b>
+    &nbsp;
+    <i><span sec:authentication="principal.authorities">Roles</span></i>   
+    
+
+</div>
+		
+		
+	
+	<table class="table">
+ 	<thead>
+ 		<tr>
+             <th>User id</th>              
+             <th>First Name</th>
+             <th>Last Name</th>
+             <th>Email</th>
+             
+              <th sec:authorize="hasAnyAuthority('EDITOR', 'ADMIN')">Action</th>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 	  <tr th:each ="user:${listusers}">
+        <td th:text="${user.id}">User id</td> 
+         <td th:text="${user.firstname}">First Name</td>         
+          <td th:text="${user.lastname}">Last Name</td> 
+           <td th:text="${user.email}">Email</td> 
+           	  
+ 	            <td sec:authorize="hasAnyAuthority('EDITOR', 'ADMIN')">
+                    
+                    <a th:href="@{'/edit/' + ${user.id}}">Edit</a>                     
+                        &nbsp;&nbsp;&nbsp;           
+                    <a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/delete/' + ${user.id}}">Delete</a>
+                
+                                        
+                </td>
+ 	  </tr>
+ 	</tbody> 
+ </table>
+			
+			
+			
+		</div>
+		
+	
+	 
+</body>
+
+</html>
