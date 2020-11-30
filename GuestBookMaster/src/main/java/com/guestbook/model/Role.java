@@ -27,6 +27,7 @@ public class Role {
 	public Role() {
 
 	}
+	
 
 	public Role(String name) {
 		super();

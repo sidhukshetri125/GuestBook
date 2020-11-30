@@ -31,10 +31,10 @@ public class User {
 	private long id;
 
 	@Column(name = "first_name")
-	private String firstname;
+	private String firstName;
 
 	@Column(name = "last_name")
-	private String lastname;
+	private String lastName;
 
 	private String email;
 	private String password;
@@ -46,38 +46,37 @@ public class User {
 	public User() {
 	}
 
-	public User(String firstname, String lastname, String email, String password, Collection<Role> roles) {
+	public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
 		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.roles = roles;
-
 	}
 
 	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -106,7 +105,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", password=" + password + ", roles=" + roles + "]";
 	}
 

@@ -1,84 +1,78 @@
- <html>
+
+<html>
 <head>
 <link href="../css/style.css" rel="stylesheet">
-<link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="../css/bootstrap.min.css" rel="stylesheet"
+	id="bootstrap-css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 
 </head>
- <body>
+<body>
 
 	<div class="container">
 		<div class="pageTitle">
-		  <div>
-			Feedback Entries
-		  </div>
+			<div>Feedback Entries</div>
 		</div>
 		<div class="navLinkDiv">
-		  <a class="underlineHover" href="/welcomeguest" style="float: left;">Back</a>
-		  <a class="underlineHover" href="/login" style="float: right;">Sign Out</a>
+			<a class="underlineHover" href="/welcomeguest" style="float: left;">Back</a>
+			<a class="underlineHover" href="/login" style="float: right;">Sign
+				Out</a>
 		</div>
-		<div style="clear: both;height: 20px;"></div>
-	
+		<div style="clear: both; height: 20px;"></div>
+
 		<br>
-		<!--  <div class="d-flex justify-content-start" style="margin-left: 10px">
-				<form action="#" th:action="@{/welcomeguest}">
-					<button type="submit" class="btn btn-success btn-lg">Go
-						Back</button>
-				</form>
-			</div> -->
-		
-		 
+
 		<div th:if="${message}">
-                <div class="alert alert-success" align="center" >
-                  <h2><b>  [[${message}]]</b></h2>
-                </div>
-         </div>
-         <div th:if="${error}">
-                <div class="alert alert-danger" align="center" >
-                  <h2><b>  [[${error}]]</b></h2>
-                </div>
-         </div>
+			<div class="alert alert-success" align="center">
+				<h2>
+					<b> [[${message}]]</b>
+				</h2>
+			</div>
+		</div>
+		<div th:if="${error}">
+			<div class="alert alert-danger" align="center">
+				<h2>
+					<b> [[${error}]]</b>
+				</h2>
+			</div>
+		</div>
 		<br>
-		 <div align="center">
-        <h1>Edit User</h1>
-        <br />
-        <form action="#" th:action="@{/save}" th:object="${user}"
-            method="post">
- 
-            <table border="0" cellpadding="10">
-              
-                <tr>             
-                    <td>First Name:</td>
-                    <td>
-                        <input type="text" th:field="*{firstname}" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Last Name:</td>
-                    <td><input type="text" th:field="*{lastname}" /></td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><input type="text" th:field="*{email}" /></td>
-                </tr>
-                
-                 <tr>
-                    <td>Password:</td>
-                    <td><input type="text" th:field="*{password}" /></td>
-                </tr>
-                                         
-                 
-            </table>
-             <tr>
-                <button type="submit" class="btn btn-success btn-lg" th:action="@{/save}">Save
-						</button>
-                   
-                </tr>
-        </form>
-    </div>
-		
-	
+		<div align="center">
+			<h1>Edit User</h1>
+			<br />
+			<form action="#" th:action="@{/save}" th:object="${user}"
+				method="post">
+
+				<table border="0" cellpadding="10">
+
+					<tr>
+						<td>First Name:</td>
+						<td><input type="text" th:field="*{firstName}" /></td>
+					</tr>
+					<tr>
+						<td>Last Name:</td>
+						<td><input type="text" th:field="*{lastName}" /></td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td><input type="text" th:field="*{email}" /></td>
+					</tr>
+
+					<tr>
+						<td>Password:</td>
+						<td><input type="text" th:field="*{password}" /></td>
+					</tr>
+
+
+				</table>
+				<tr>
+					<button type="submit" class="btn btn-success btn-lg"
+						th:action="@{/save}">Save</button>
+				</tr>
+			</form>
+		</div>
 	</div>
 </body>
 

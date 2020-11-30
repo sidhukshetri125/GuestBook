@@ -52,17 +52,17 @@
              <th>Last Name</th>
              <th>Email</th>
              
-              <th sec:authorize="hasAnyAuthority('EDITOR', 'ADMIN')">Action</th>
+              <th sec:authorize="hasAnyAuthority('ADMIN')">Action</th>
  		</tr>
  	</thead>
  	<tbody>
  	  <tr th:each ="user:${listusers}">
         <td th:text="${user.id}">User id</td> 
-         <td th:text="${user.firstname}">First Name</td>         
-          <td th:text="${user.lastname}">Last Name</td> 
+         <td th:text="${user.firstName}">First Name</td>         
+          <td th:text="${user.lastName}">Last Name</td> 
            <td th:text="${user.email}">Email</td> 
            	  
- 	            <td sec:authorize="hasAnyAuthority('EDITOR', 'ADMIN')">
+ 	            <td sec:authorize="hasAnyAuthority('ADMIN')">
                     
                     <a th:href="@{'/edit/' + ${user.id}}">Edit</a>                     
                         &nbsp;&nbsp;&nbsp;           

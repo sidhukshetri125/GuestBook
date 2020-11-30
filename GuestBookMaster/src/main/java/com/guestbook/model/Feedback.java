@@ -33,15 +33,13 @@ public class Feedback {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-
-	private String firstname;
-	private String feedbackimagename;
-	private String feedbacktext;
+	private String firstName;
+	private String feedbackImageName;
+	private String feedbackText;
 	@Lob
-	private byte[] feedbackimage;
+	private byte[] feedbackImage;
 	private Date timestamp;
 	private boolean status = false;
-
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "userid", referencedColumnName = "id", insertable = true, updatable = true)
 	private User user;
@@ -50,55 +48,56 @@ public class Feedback {
 
 	}
 
-	public Feedback(String firstname, String feedbacktext, String feedbackimagename, byte[] feedbackimage,
+	public Feedback(String firstName, String feedbackImageName, String feedbackText, byte[] feedbackImage,
 			Date timestamp, boolean status, User user) {
 		super();
-		this.firstname = firstname;
-		this.feedbacktext = feedbacktext;
-		this.feedbackimagename = feedbackimagename;
-		this.feedbackimage = feedbackimage;
+		this.firstName = firstName;
+		this.feedbackImageName = feedbackImageName;
+		this.feedbackText = feedbackText;
+		this.feedbackImage = feedbackImage;
 		this.timestamp = timestamp;
 		this.status = status;
-
 		this.user = user;
-
 	}
 
-	/*
-	 * public int getId() { return id; }
-	 * 
-	 * public void setId(int id) { this.id = id; }
-	 */
-	public String getFeedbackimagename() {
-		return feedbackimagename;
+	public long getId() {
+		return id;
 	}
 
-	public void setFeedbackimagename(String feedbackimagename) {
-		this.feedbackimagename = feedbackimagename;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getFeedbacktext() {
-		return feedbacktext;
+	public String getFeedbackImageName() {
+		return feedbackImageName;
 	}
 
-	public void setFeedbacktext(String feedbacktext) {
-		this.feedbacktext = feedbacktext;
+	public void setFeedbackImageName(String feedbackImageName) {
+		this.feedbackImageName = feedbackImageName;
 	}
 
-	public byte[] getFeedbackimage() {
-		return feedbackimage;
+	public String getFeedbackText() {
+		return feedbackText;
 	}
 
-	public void setFeedbackimage(byte[] feedbackimage) {
-		this.feedbackimage = feedbackimage;
+	public void setFeedbackText(String feedbackText) {
+		this.feedbackText = feedbackText;
+	}
+
+	public byte[] getFeedbackImage() {
+		return feedbackImage;
+	}
+
+	public void setFeedbackImage(byte[] feedbackImage) {
+		this.feedbackImage = feedbackImage;
 	}
 
 	public Date getTimestamp() {
@@ -117,14 +116,6 @@ public class Feedback {
 		this.status = status;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public User getUser() {
 		return user;
 	}
@@ -135,9 +126,9 @@ public class Feedback {
 
 	@Override
 	public String toString() {
-		return "Feedback [id=" + id + ", firstname=" + firstname + ", feedbackimagename=" + feedbackimagename
-				+ ", feedbacktext=" + feedbacktext + ", feedbackimage=" + Arrays.toString(feedbackimage)
-				+ ", timestamp=" + timestamp + ", status=" + status + ", user=" + user + ", feedbackApproved=" + "]";
+		return "Feedback [id=" + id + ", firstName=" + firstName + ", feedbackImageName=" + feedbackImageName
+				+ ", feedbackText=" + feedbackText + ", feedbackImage=" + Arrays.toString(feedbackImage)
+				+ ", timestamp=" + timestamp + ", status=" + status + ", user=" + user + "]";
 	}
 
 }

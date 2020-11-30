@@ -1,46 +1,49 @@
 <html>
 <head>
 <link href="../css/style.css" rel="stylesheet">
-<link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="../css/bootstrap.min.css" rel="stylesheet"
+	id="bootstrap-css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 
 </head>
- <body>
+<body>
 
 	<div class="container">
 		<div class="pageTitle">
-		  <div>
-			Feedback Entries
-		  </div>
+			<div>Feedback Entries</div>			
 		</div>
 		<div class="navLinkDiv">
-		  <a class="underlineHover" href="/welcomeguest" style="float: left;">Back</a>
-		  <a class="underlineHover" href="/login" style="float: right;">Sign Out</a>
+			<a class="underlineHover" href="/welcomeguest" style="float: left;">Back</a>
+			<a class="underlineHover" href="/login" style="float: right;">Sign
+				Out</a>
 		</div>
-		<div style="clear: both;height: 20px;"></div>
-	
+		<div style="clear: both; height: 20px;"></div>
+
 		<br>
-		<!-- <div class="d-flex justify-content-start" style="margin-left: 10px">
-				<form action="#" th:action="@{/welcomeUser}">
-					<button type="submit" class="btn btn-success btn-lg">Go
-						Back</button>
-				</form>
-			</div> -->
-		
+
 		<div th:if="${#lists.isEmpty(feedbackList)}">
-		<div class="alert alert-danger" align="center"><h2><b>No Feedbacks to display </b></h2></div>
+			<div class="alert alert-danger" align="center">
+				<h2>
+					<b>Empty Feedbacks </b>
+				</h2>
+			</div>
 		</div>
 		<div th:if="${message}">
-                <div class="alert alert-success" align="center" >
-                  <h2><b>  [[${message}]]</b></h2>
-                </div>
-         </div>
-         <div th:if="${error}">
-                <div class="alert alert-danger" align="center" >
-                  <h2><b>  [[${error}]]</b></h2>
-                </div>
-         </div>
+			<div class="alert alert-success" align="center">
+				<h2>
+					<b> [[${message}]]</b>
+				</h2>
+			</div>
+		</div>
+		<div th:if="${error}">
+			<div class="alert alert-danger" align="center">
+				<h2>
+					<b> [[${error}]]</b>
+				</h2>
+			</div>
+		</div>
 		<br>
 		<div class="card">
 			<table class="table table-fit table-bordered text-center">
@@ -51,23 +54,21 @@
 						<th>Message</th>
 						<th>Image</th>
 						<th>Timestamp</th>
-						 
+
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="temp : ${feedbackList}">
 						<td th:text="${temp.id}" />
-						<td th:text="${temp.firstname}"/>
-						<td th:text="${temp.feedbacktext}"/>
-						<td th:text="${temp.feedbackimagename}"/>
-						<td th:text="${temp.timestamp}"/>
-					
+						<td th:text="${temp.firstName}" />
+						<td th:text="${temp.feedbackText}" />
+						<td th:text="${temp.feedbackImageName}" />
+						<td th:text="${temp.timestamp}" />
+
 					</tr>
 				</tbody>
 			</table>
 		</div>
-		
-	
 	</div>
 </body>
 

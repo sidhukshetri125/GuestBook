@@ -1,52 +1,55 @@
 <html>
 <head>
-    <link href="../css/style.css" rel="stylesheet">
-<link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="../css/style.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet"
+	id="bootstrap-css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 
-<!------ Include the above in your HEAD tag ---------->
 </head>
 <div class="container">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-	<h1 class="pageTitle">Welcome to Guest Book </h1>
-	<div class="navLinkDiv">
-		
-		<a class="underlineHover" href="/login" style="float: right;">Sign Out</a>
-	  </div>
-	  <div style="clear: both;"></div>
-	<div class="inner-container">
-		<div class="row">
-			<div class="col-md-12">
-	<img src="/images/SwimmingPool.jpg"	alt="user image">
-			<div>
-				<h3>
-					<!-- <span>User name</span> -->
-					<p>
-						Welcome <span sec:authentication="principal.username" >User</span>
-					</p>
-					<i><span sec:authentication="principal.authorities">Roles</span></i>
-				</h3>
-	</div>
-    <!-- Remind Passowrd -->
-    <div  class="text-center" id="formFooter">
-	  <a class="underlineHover" style="float: none;" th:href="@{/addFeedback}">Add feedback</a>
-	 
-	  <td sec:authorize="hasAnyAuthority('ADMIN')">
-	  <a class="underlineHover" style="float: none;" th:href="@{/viewFeedbackUser}">View feedback</a>	
-	  <a class="underlineHover" style="float: none;" th:href="@{/indexadmin}">User Details</a>
-	 </td>
-	  <a class="underlineHover" style="float: none;" th:href="@{/contact}">Contact Us</a>    
-    </div>
-	<div class="text-center">
-						
-		</div>
+	<div id="formContent">
+		<!-- Tabs Titles -->
+		<h1 class="pageTitle">Welcome to Guest Book</h1>
+		<div class="navLinkDiv">
 
-  </div>
-</div>
-</div>
-</div>
+			<a class="underlineHover" href="/login" style="float: right;">Sign
+				Out</a>
+		</div>
+		<div style="clear: both;"></div>
+		<div class="inner-container">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="/images/SwimmingPool.jpg" alt="user image">
+					<div>
+						<h3>
+							<!-- <span>User name</span> -->
+							<p>
+								Welcome <span sec:authentication="principal.username">User</span>
+							</p>
+							<i><span sec:authentication="principal.authorities">Roles</span></i>
+						</h3>
+					</div>
+
+					<div class="text-center" id="formFooter">
+						<a class="underlineHover" style="float: none;"
+							th:href="@{/addFeedback}">Add feedback</a>
+
+						<td sec:authorize="hasAnyAuthority('ADMIN')"><a
+							class="underlineHover" style="float: none;"
+							th:href="@{/viewFeedbackUser}">View feedback</a> <a
+							class="underlineHover" style="float: none;"
+							th:href="@{/indexadmin}">User Details</a></td> <a
+							class="underlineHover" style="float: none;" th:href="@{/contact}">Contact
+							Us</a>
+					</div>
+					<div class="text-center"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 </html>
